@@ -1,12 +1,11 @@
 const Koa = require("koa");
 const app = new Koa();
-const log4js = require("log4js");
 const views = require("koa-views");
 const json = require("koa-json");
 const onerror = require("koa-onerror");
 const bodyparser = require("koa-bodyparser");
 const logger = require("koa-logger");
-
+const log4j = require("./utils/log4j");
 const index = require("./routes/index");
 const users = require("./routes/users");
 
@@ -42,7 +41,7 @@ app.use(users.routes(), users.allowedMethods());
 
 // error-handling
 app.on("error", (err, ctx) => {
-  console.error("server error", err, ctx);
+  log4j.error(err);
 });
 
 module.exports = app;
