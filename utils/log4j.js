@@ -22,7 +22,7 @@ log4js.configure({
   },
   categories: {
     default: { appenders: ["CONSOLE"], level: LOGLevels.debug },
-    info: { appenders: ["INFO"], level: LOGLevels.info },
+    info: { appenders: ["INFO", "CONSOLE"], level: LOGLevels.info },
     error: { appenders: ["ERROR"], level: LOGLevels.error },
   },
 });

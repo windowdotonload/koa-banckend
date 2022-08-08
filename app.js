@@ -8,6 +8,7 @@ const logger = require("koa-logger");
 const log4j = require("./utils/log4j");
 const index = require("./routes/index");
 const users = require("./routes/users");
+require("./config/db");
 
 // error handler
 onerror(app);
