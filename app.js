@@ -22,6 +22,12 @@ app.use(json());
 app.use(logger());
 app.use(require("koa-static")(__dirname + "/public"));
 
+app.use(async (ctx, next) => {
+  log4j.info(`POST --- ${JSON.stringify(ctx.request.body)}`);
+  log4j.info(`GET  --- ${JSON.stringify(ctx.request.query)}`);
+  await next();
+});
+
 app.use(
   views(__dirname + "/views", {
     extension: "pug",

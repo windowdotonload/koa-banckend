@@ -21,7 +21,7 @@ module.exports = {
       skipIndex,
     };
   },
-  success(data = "", msg = "", code = CODE.SUCCESS) {
+  success(data = {}, msg = "", code = CODE.SUCCESS) {
     log4j.debug(data);
     return { data, msg, code };
   },
